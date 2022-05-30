@@ -2,18 +2,20 @@
 # Example:
 # count_words("The cake is done. It is a big cake!") 
 # --> {"cake":2, "big":1, "is":2, "the":1, "a":1, "it":1}
+import os
+import sys
 
 def read_file_content(filename):
     # [assignment] Add your code here 
-    with open(filename, "r") as file:  #open file in read-only
+    with open(os.path.join(sys.path[0], filename), "r") as file:  #open file in read-only
         fileStory = file.readlines()   #read lines from
 
-    print(fileStory)    #print content of file
+       #return content of file
     return fileStory    
 
 
 def count_words():
-    text = read_file_content("Reading-Text-Files\story.txt")  #assigning content in file to variable text
+    text = read_file_content("story.txt")  #assigning content in file to variable text
     # [assignment] Add your code here
     d = {}    #creating empty dictionary
 
@@ -43,5 +45,5 @@ def count_words():
 
     #return {"as": 10, "would": 20}
 
-read_file_content("Reading-Text-Files\story.txt")
+print(read_file_content("story.txt"))
 count_words()
